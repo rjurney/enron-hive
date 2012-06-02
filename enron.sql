@@ -1,6 +1,7 @@
 create external table from_to(from_address string, to_address string, dt string) 
     row format delimited fields terminated by '\t' stored as textfile location 's3://enron.data/from.to.date';
 
+// Get this from https://github.com/rjurney/timeseriesserde
 add jar /home/hadoop/timeseriesserde.jar;
 create temporary function TimeSeries as 'com.example.hive.udf.TimeSeries';
 
